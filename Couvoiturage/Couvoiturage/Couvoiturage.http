@@ -1,0 +1,6 @@
+@Couvoiturage_HostAddress = http://localhost:5231
+
+GET {{Couvoiturage_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
