@@ -1,132 +1,62 @@
-# Covoiturage App
+# Covoiturage Frontend
 
-A modern Angular carpooling web application designed to help users find, offer, and manage shared rides. The app focuses on a clean user experience for trip search, ride creation, and trip management in a mobility-sharing context.
+The Angular frontend for the Covoiturage carpooling project. This directory documents and runs only the web client; the ASP.NET Core API is a separate project in `../Couvoiturage`.
 
-## Project overview
+> **Current scope:** This project provides the Angular interface and route/page structure. It does not currently make HTTP requests to the backend API, so the frontend screens are not yet connected to backend data or authentication.
 
-This project is a front-end prototype for a ride-sharing platform inspired by services like BlaBlaCar. It includes a complete user flow for:
+## Frontend features and pages
 
-- searching for available rides
-- creating a new ride offer
-- viewing and managing personal rides
-- signing in or creating an account
-- viewing a user profile
-
-The application uses Angular 21 with standalone components, Angular Router, and a responsive interface built around a travel / eco-mobility theme.
-
-## Key features
-
-- Home landing page with hero section and trip search form
-- Search screen for departure, destination, date, and passenger filters
-- Ride creation form with route, time, price, and seat selection
-- My rides dashboard for personal trip management
-- Authentication screens for login and registration
+- Home page and ride-search interface
+- Ride search page with route/date and filter fields
+- Ride creation page
+- Personal rides page
+- Login and registration pages
 - User profile page
-- Responsive design for desktop and mobile browsing
-- Client-side route navigation with reusable components and modular page structure
+- Responsive layouts and shared navigation
 
-## Tech stack
+Routes are configured in `src/app/app.routes.ts`: `/`, `/search`, `/create`, `/my-rides`, `/login`, `/register`, and `/profile`.
 
-- Angular 21
-- TypeScript
-- Angular Router
-- Angular Forms
-- CSS for custom styling
-- Angular SSR support
-- Vitest (configured in the project tooling)
+## Technology
 
-## Project structure
+- Angular 21 and TypeScript
+- Angular Router and Forms
+- Angular SSR tooling
+- CSS
+- Vitest through the Angular test builder
 
-```text
-src/
-  app/
-    app.routes.ts
-    app.ts
-    app.html
-    app.css
-    models/
-      ride.ts
-    pages/
-      home/
-      search/
-      create-ride/
-      my-rides/
-      login/
-      register/
-      profile/
-      navbar/
-```
+## Prerequisites
 
-## Routes
+- Node.js and npm versions supported by Angular 21
 
-The application includes the following pages:
+## Install and run locally
 
-- `/` - Home page
-- `/search` - Search for rides
-- `/create` - Create a ride offer
-- `/my-rides` - Manage personal rides
-- `/login` - User login
-- `/register` - User registration
-- `/profile` - User profile
+From this directory:
 
-## Getting started
-
-### Prerequisites
-
-Make sure you have the following installed on your machine:
-
-- Node.js (recommended: current LTS version)
-- npm
-
-### Install dependencies
-
-```bash
+```powershell
 npm install
-```
-
-### Run the app in development mode
-
-```bash
 npm start
 ```
 
-or
+Open `http://localhost:4200/`. The development server reloads the application when source files change.
 
-```bash
-ng serve
-```
+## Build
 
-Then open:
-
-```text
-http://localhost:4200/
-```
-
-The app will automatically reload when you change source files.
-
-## Build for production
-
-```bash
+```powershell
 npm run build
 ```
 
-This creates a production build in the `dist/` folder.
+The production build is written under `dist/`. The project is configured for server-side rendering; after a successful build, the generated server can be run with:
 
-## Run tests
+```powershell
+npm run serve:ssr:covoiturage-app
+```
 
-```bash
+## Tests
+
+```powershell
 npm test
 ```
 
-## Notes
+## Related project
 
-This project is currently a front-end prototype and does not yet include a real backend, database, or authentication service. It is structured so that those services can be connected later without major refactoring.
-
-## License
-
-This project is for educational / personal use and is not currently configured with a formal commercial license.
-
-## Useful resources
-
-- Angular documentation: https://angular.dev
-- Angular CLI: https://angular.dev/tools/cli
+For API, SQL Server, authentication, and database setup, see [`../Couvoiturage/README.md`](../Couvoiturage/README.md). Starting the API does not connect it to this frontend; that integration is not implemented yet.
